@@ -1,0 +1,19 @@
+# non-compliant.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: java-app
+  template:
+    metadata:
+      labels:
+        app: java-app
+    spec:
+      containers:
+      - name: main
+        image: openjdk:11
+        command: ["/bin/sh", "-c", "sleep infinity"]
