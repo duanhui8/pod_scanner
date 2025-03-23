@@ -110,14 +110,14 @@ func getTargetNamespaces(clientset *kubernetes.Clientset) ([]string, error) {
 		}
 	}
 	//过滤出_test的命名空间
-	// var targetList []string
-	// for _, ns := range targets {
-	// 	if strings.Contains(ns, "_test") {
-	// 		targetList = append(targetList, ns)
-	// 	}
-	// }
+	var targetList []string
+	for _, ns := range targets {
+		if strings.Contains(ns, "_test") {
+			targetList = append(targetList, ns)
+		}
+	}
 
-	return targets, nil
+	return targetList, nil
 }
 
 // 判断是否受保护命名空间
